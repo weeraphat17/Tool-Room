@@ -16,7 +16,13 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="fontawesome-free-6.2.1-web/css/all.css">
     <script src="js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="css/dataTables.bootstrap5.min.css">
+    
+    <script src="js/jquery-3.5.1.js"></script>
+    <script src="js/jquery.dataTables.min.js"></script>
+    <script src="js/dataTables.bootstrap5.min.js"></script>
 
+    
     <!-- Font -->
     <link rel="preconnect" href="assets/font/Mali-Regular.ttf" crossorigin>
 
