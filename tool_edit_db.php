@@ -9,7 +9,7 @@
     $sql = "UPDATE tools SET tools_name = '$tools_name' , tools_note = '$tools_note' WHERE tools_code = '$tools_code'";
     $result = mysqli_query($conn, $sql);
     if($result){
-        header('location:tool.php');
+        header('location:tool.php?message=1');
     }
 
 ?>

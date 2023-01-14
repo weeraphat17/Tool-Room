@@ -27,6 +27,37 @@
             <div class="mt-3">
                 <button type="submit" class="btn btn-outline-primary"><i class="fa-solid fa-plus"></i>
                     เพิ่มเครื่องมือ</button>
+
+                <div class="toast-container position-fixed position-relative top-0 end-0 p-3">
+                    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-body" style="color:green;">
+                            ทำรายการสำเร็จ
+                        </div>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    
+                    // ถ้า url เป้น  http://localhost/index.html?ID=4
+                    var strID = window.location.href;
+                    // จะได้ strID  = http://localhost/index.html?ID=4
+                    var arrID = strID.split("?");
+                    // จะได้ arrID เป็น array มีค่า 
+                    // arrID[0]="http://localhost/index.html";
+                    // arrID[1]="ID=4";
+                    var dataID = arrID[1].split("=");
+                    // แบ่งอีกครั้งด้วย =  จะได้ 
+                    // dataID[0]="ID";
+                    // dataID[1]="4";
+                    var message = dataID[1];
+                    function resMes(essage){
+                        if(message == 1){
+                            const toastLiveExample = document.getElementById('liveToast')
+                            const toast = new bootstrap.Toast(toastLiveExample)
+                            toast.show()
+                        }
+                    }
+                    resMes()
+                </script>
             </div>
         </div>
     </form>
@@ -55,10 +86,11 @@
                     <td><code style="color: #9932CC;"><?php echo $row['tools_note'] ?></code></td>
                     <td style="text-align:center">
                         <a href="http://" class="btn btn-outline-dark" data-bs-toggle="modal"
-                            data-bs-target="#editTool<?php echo $row['tools_id'] ?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                            data-bs-target="#editTool<?php echo $row['tools_id'] ?>"><i
+                                class="fa-solid fa-pen-to-square"></i></a>
                         <!-- Modal -->
-                        <div class="modal fade" id="editTool<?php echo $row['tools_id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
+                        <div class="modal fade" id="editTool<?php echo $row['tools_id'] ?>" tabindex="-1"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -71,13 +103,14 @@
                                         <form action="tool_edit_db.php?code=<?php echo "$tools_code" ?>" method="post">
                                             <div class="mt-2">
                                                 <label>ชื่อครื่องมือ</label>
-                                                <input value="<?php echo $row['tools_name'] ?>" type="text" name="tools_name" placeholder="xxxxxx"
-                                                    class="form-control" required>
+                                                <input value="<?php echo $row['tools_name'] ?>" type="text"
+                                                    name="tools_name" placeholder="xxxxxx" class="form-control"
+                                                    required>
                                             </div>
                                             <div class="mt-2">
                                                 <label>หมายเหตุ</label> <code>ใส่หรือไม่ใส่ก็ได้</code>
-                                                <textarea value="<?php echo $row['tools_note'] ?>" class="form-control" name="tools_note" id="" cols="7"
-                                                    rows="4"></textarea>
+                                                <textarea value="<?php echo $row['tools_note'] ?>" class="form-control"
+                                                    name="tools_note" id="" cols="7" rows="4"></textarea>
                                             </div>
                                             <div class="mt-3 d-flex flex-row-reverse">
                                                 <button type="submit" class="btn btn-outline-primary">บันทึก</button>

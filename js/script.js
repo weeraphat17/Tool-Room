@@ -56,3 +56,4 @@ $.extend(true, $.fn.dataTable.defaults, {
 // เรียกใช้งาน Datatable function
 
 $('.table').DataTable();
+

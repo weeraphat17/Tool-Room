@@ -16,13 +16,13 @@
         $result = mysqli_query($conn, $sql);
 
         if($result){
-            header('location:tool.php');
+            header('location:tool.php?message=1');
         }
     }else{
         ?><script>
-            alert("รหัสนี้ถูกใช้งานแล้ว")
-            window.location.href = "tool.php"
-        </script><?php
+alert("รหัสนี้ถูกใช้งานแล้ว")
+window.location.href = "tool.php"
+</script><?php
     }
 
 ?>

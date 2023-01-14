@@ -11,7 +11,7 @@
     $result2 = mysqli_query($conn, $sql2);
 
     if($result){
-        header('location:tool.php');
+        header('location:tool.php?message=1');
     }
 
 ?>

@@ -5,7 +5,7 @@
         </a>    
     </div>
     <div class="list-group list-group-flush">
-        <a class="nav-link list-group-item-action list-group-item-light p-3" href="borrow.php">ยืม-คืน</a>
+        <a class="nav-link list-group-item-action list-group-item-light p-3" href="borrow.php">ยืม-คืน เครื่องมือ</a>
         <a class="nav-link list-group-item-action list-group-item-light p-3" href="tool.php">เพิ่มเครื่องมือ</a>
         <a class="nav-link list-group-item-action list-group-item-light p-3" href="tray.php">เครื่องมือประจำถาด</a>
         <a class="nav-link list-group-item-action list-group-item-light p-3" href="#!">Events</a>
