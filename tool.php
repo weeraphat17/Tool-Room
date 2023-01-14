@@ -30,7 +30,7 @@
             </div>
         </div>
     </form>
-    <div class="mt-5">
+    <div class="mt-5 mb-5">
         <?php 
             $sql = "SELECT * FROM tools";
             $result = mysqli_query($conn, $sql);
@@ -45,15 +45,62 @@
                 </tr>
             </thead>
             <tbody>
-                <?php while($row = mysqli_fetch_assoc($result)){ ?>
+                <?php 
+                while($row = mysqli_fetch_assoc($result)){ 
+                    $tools_code = $row['tools_code'];
+                ?>
                 <tr>
                     <td><?php echo $row['tools_code'] ?></td>
                     <td><?php echo $row['tools_name'] ?></td>
                     <td><code style="color: #9932CC;"><?php echo $row['tools_note'] ?></code></td>
                     <td style="text-align:center">
-                    <a href="http://" class="btn btn-outline-dark"><i class="fa-solid fa-pen-to-square"></i></a>
-                    <a href="http://" class="btn btn-outline-danger"><i class="fa-solid fa-x"></i></a>
-                    
+                        <a href="http://" class="btn btn-outline-dark" data-bs-toggle="modal"
+                            data-bs-target="#editTool<?php echo $row['tools_id'] ?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <!-- Modal -->
+                        <div class="modal fade" id="editTool<?php echo $row['tools_id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">แก้ไขเครื่องมือ
+                                            <?php echo "$tools_code" ?></h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body" style="text-align:left;">
+                                        <form action="tool_edit_db.php?code=<?php echo "$tools_code" ?>" method="post">
+                                            <div class="mt-2">
+                                                <label>ชื่อครื่องมือ</label>
+                                                <input value="<?php echo $row['tools_name'] ?>" type="text" name="tools_name" placeholder="xxxxxx"
+                                                    class="form-control" required>
+                                            </div>
+                                            <div class="mt-2">
+                                                <label>หมายเหตุ</label> <code>ใส่หรือไม่ใส่ก็ได้</code>
+                                                <textarea value="<?php echo $row['tools_note'] ?>" class="form-control" name="tools_note" id="" cols="7"
+                                                    rows="4"></textarea>
+                                            </div>
+                                            <div class="mt-3 d-flex flex-row-reverse">
+                                                <button type="submit" class="btn btn-outline-primary">บันทึก</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a <?php 
+                    $sql2 = "SELECT * FROM tools_tray WHERE tools_code = '$tools_code'";
+                    $result2 = mysqli_query($conn, $sql2);
+                    if(mysqli_num_rows($result2) == 1){ ?> onclick="alertFunction()" <?php
+                    }else{
+                        ?> href="tool_del_db.php?code=<?php echo $row['tools_code'] ?>" <?php
+                    } ?> class="btn btn-outline-danger"><i class="fa-solid fa-x"></i></a>
+                        <script>
+                        function alertFunction() {
+                            if (confirm("มีอุปกรณ์นี้ในถาดเครื่องมือ คุณต้องการลบหรือไม่?")) {
+                                window.location.href = "tool_del_db.php?code=<?php echo $row['tools_code'] ?>"
+                            }
+                        }
+                        </script>
                     </td>
                 </tr>
                 <?php } ?>
