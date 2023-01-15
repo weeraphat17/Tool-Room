@@ -6,22 +6,22 @@
 <div class="container-fluid m-2">
     <small><b>Home / ยืม-คืน เครื่องมือ</small></b>
 
-    <form action="tool_add_db.php" method="post">
+    <form action="borrow_add_db.php" method="post">
         <div class="row" style="margin-right:0.5rem;">
             <div class="col-lg-5 col-12  mt-4">
                 <div>
-                    <label>รหัสเครื่องมือ</label>
-                    <input type="text" name="tools_code" minlength="6" maxlength="6" placeholder="A12345"
+                    <label>รหัสนักเรียน / นักศึกษา</label>
+                    <input type="text" name="student_id" maxlength="11"
                         class="form-control" required>
                 </div>
                 <div class="mt-2">
-                    <label>ชื่อครื่องมือ</label>
-                    <input type="text" name="tools_name" placeholder="xxxxxx" class="form-control" required>
+                    <label>รหัสเครื่องมือ / ถาดเครื่องมือ</label>
+                    <input type="text" name="code" minlength="6" maxlength="6" class="form-control" required>
                 </div>
             </div>
             <div class="mt-3">
                 <button type="submit" class="btn btn-outline-primary"><i class="fa-solid fa-plus"></i>
-                    เพิ่มเครื่องมือ</button>
+                    ยืมเครื่องมือ</button>
             </div>
         </div>
     </form>

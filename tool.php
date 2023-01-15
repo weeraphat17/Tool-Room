@@ -27,37 +27,6 @@
             <div class="mt-3">
                 <button type="submit" class="btn btn-outline-primary"><i class="fa-solid fa-plus"></i>
                     เพิ่มเครื่องมือ</button>
-
-                <div class="toast-container position-fixed position-relative top-0 end-0 p-3">
-                    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-                        <div class="toast-body" style="color:green;">
-                            ทำรายการสำเร็จ
-                        </div>
-                    </div>
-                </div>
-                <script type="text/javascript">
-                    
-                    // ถ้า url เป้น  http://localhost/index.html?ID=4
-                    var strID = window.location.href;
-                    // จะได้ strID  = http://localhost/index.html?ID=4
-                    var arrID = strID.split("?");
-                    // จะได้ arrID เป็น array มีค่า 
-                    // arrID[0]="http://localhost/index.html";
-                    // arrID[1]="ID=4";
-                    var dataID = arrID[1].split("=");
-                    // แบ่งอีกครั้งด้วย =  จะได้ 
-                    // dataID[0]="ID";
-                    // dataID[1]="4";
-                    var message = dataID[1];
-                    function resMes(essage){
-                        if(message == 1){
-                            const toastLiveExample = document.getElementById('liveToast')
-                            const toast = new bootstrap.Toast(toastLiveExample)
-                            toast.show()
-                        }
-                    }
-                    resMes()
-                </script>
             </div>
         </div>
     </form>
