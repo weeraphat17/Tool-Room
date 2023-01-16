@@ -8,6 +8,20 @@
         </div>
     </div>
 </div>
+<div class="toast-container position-fixed position-relative top-0 end-0 p-3">
+    <div id="dangerToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-body" style="color:red;">
+            ไม่สามารถทำรายการได้
+        </div>
+    </div>
+</div>
+<div class="toast-container position-fixed position-relative top-0 end-0 p-3">
+    <div id="warningToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-body" style="color:orange;">
+            รหัสอุปกรณ์นี้ถูกยืมแล้ว
+        </div>
+    </div>
+</div>
 <style>
 .toast {
     animation: slideDown 0.5s ease-in-out;
@@ -42,6 +56,14 @@ var message = dataID[1];
 function resMes(essage) {
     if (message == 1) {
         const toastLiveExample = document.getElementById('succesToast')
+        const toast = new bootstrap.Toast(toastLiveExample)
+        toast.show()
+    }else if(message == 2){
+        const toastLiveExample = document.getElementById('dangerToast')
+        const toast = new bootstrap.Toast(toastLiveExample)
+        toast.show()
+    }else if(message == 3){
+        const toastLiveExample = document.getElementById('warningToast')
         const toast = new bootstrap.Toast(toastLiveExample)
         toast.show()
     }

@@ -20,9 +20,9 @@
         }
     }else{
         ?><script>
-alert("รหัสนี้ถูกใช้งานแล้ว")
-window.location.href = "tool.php"
-</script><?php
+        alert("รหัสนี้ถูกใช้งานแล้ว")
+        window.location.href = "tool.php"
+        </script><?php
     }
 
 ?>

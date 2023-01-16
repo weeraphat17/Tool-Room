@@ -11,8 +11,7 @@
             <div class="col-lg-5 col-12  mt-4">
                 <div>
                     <label>รหัสนักเรียน / นักศึกษา</label>
-                    <input type="text" name="student_id" maxlength="11"
-                        class="form-control" required>
+                    <input type="text" name="student_id" maxlength="11" class="form-control" required>
                 </div>
                 <div class="mt-2">
                     <label>รหัสเครื่องมือ / ถาดเครื่องมือ</label>
@@ -27,11 +26,17 @@
     </form>
 
     <div class="row mt-5" style="margin-right:0.5rem;">
+        <?php 
+            $sql = "SELECT * FROM borrow";
+            $result = mysqli_query($conn, $sql);
+            while ($row = mysqli_fetch_assoc($result)){
+        ?>
         <div class="col-lg-4 col-md-6 col-12 mb-4">
             <div class="card">
                 <div class="card-header">
                     <div class="d-flex bd-highlight">
-                        <div class="bd-highlight"><label><b>ถาดเครื่องมือ:</b> A00001</label></div>
+                        <div class="bd-highlight"><label><b>ถาดเครื่องมือ:</b> A00001 <span
+                                    style="color:red;">(เลยกำหนดคืน)</span></label></div>
                         <div class="ms-auto bd-highlight"><a href="#"><i class="fa-solid fa-plus"
                                     style="bg-primary"></i></a></div>
                     </div>
@@ -44,7 +49,7 @@
                         <label><b>ชื่อ-สกุล:</b> ธีรเดช รอดพ้น</label>
                     </div>
                     <div class="mb-2">
-                        <label><b>เวลาคืน:<span style="color:red;"> 13.35</span></b></label>
+                        <label><b>เวลายืม-คืน: </b><span> 8.30 - 13.30</span></label>
                     </div>
                     <div class="d-flex bd-highlight">
                         <div class="ms-auto bd-highlight"><a href="" class="btn btn-outline-success btn-sm"><i
@@ -53,110 +58,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 col-md-6 col-12 mb-4">
-            <div class="card">
-                <div class="card-header">
-                    <div class="d-flex bd-highlight">
-                        <div class="bd-highlight"><label><b>เครื่องมือ:</b> A00001</label></div>
-                        <div class="ms-auto bd-highlight"><a href="#"><i class="fa-solid fa-plus"
-                                    style="bg-primary"></i></a></div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="mb-2">
-                        <label><b>รหัสนักเรียน:</b> 65309010001</label>
-                    </div>
-                    <div class="mb-2">
-                        <label><b>ชื่อ-สกุล:</b> ธีรเดช รอดพ้น</label>
-                    </div>
-                    <div class="mb-2">
-                        <label><b>เวลาคืน:<span style="color:#E49B0F;"> 13.15</span></b></label>
-                    </div>
-                    <div class="d-flex bd-highlight">
-                        <div class="ms-auto bd-highlight"><a href="" class="btn btn-outline-success btn-sm"><i
-                                    class="fa-solid fa-arrow-rotate-left"></i> คืนอุปกรณ์</a></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-12 mb-4">
-            <div class="card">
-                <div class="card-header">
-                    <div class="d-flex bd-highlight">
-                        <div class="bd-highlight"><label><b>ถาดเครื่องมือ:</b> A00001</label></div>
-                        <div class="ms-auto bd-highlight"><a href="#"><i class="fa-solid fa-plus"
-                                    style="bg-primary"></i></a></div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="mb-2">
-                        <label><b>รหัสนักเรียน:</b> 65309010001</label>
-                    </div>
-                    <div class="mb-2">
-                        <label><b>ชื่อ-สกุล:</b> ธีรเดช รอดพ้น</label>
-                    </div>
-                    <div class="mb-2">
-                        <label><b>เวลาคืน:<span style="color:#707080;"> 12.00</span></b></label>
-                    </div>
-                    <div class="d-flex bd-highlight">
-                        <div class="ms-auto bd-highlight"><a href="" class="btn btn-outline-success btn-sm"><i
-                                    class="fa-solid fa-arrow-rotate-left"></i> คืนอุปกรณ์</a></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-12 mb-4">
-            <div class="card">
-                <div class="card-header">
-                    <div class="d-flex bd-highlight">
-                        <div class="bd-highlight"><label><b>ถาดเครื่องมือ:</b> A00001</label></div>
-                        <div class="ms-auto bd-highlight"><a href="#"><i class="fa-solid fa-plus"
-                                    style="bg-primary"></i></a></div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="mb-2">
-                        <label><b>รหัสนักเรียน:</b> 65309010001</label>
-                    </div>
-                    <div class="mb-2">
-                        <label><b>ชื่อ-สกุล:</b> ธีรเดช รอดพ้น</label>
-                    </div>
-                    <div class="mb-2">
-                        <label><b>เวลาคืน:</b> 08.00</label>
-                    </div>
-                    <div class="d-flex bd-highlight">
-                        <div class="ms-auto bd-highlight"><a href="" class="btn btn-outline-success btn-sm"><i
-                                    class="fa-solid fa-arrow-rotate-left"></i> คืนอุปกรณ์</a></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-12 mb-4">
-            <div class="card">
-                <div class="card-header">
-                    <div class="d-flex bd-highlight">
-                        <div class="bd-highlight"><label><b>ถาดเครื่องมือ:</b> A00001</label></div>
-                        <div class="ms-auto bd-highlight"><a href="#"><i class="fa-solid fa-plus"
-                                    style="bg-primary"></i></a></div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="mb-2">
-                        <label><b>รหัสนักเรียน:</b> 65309010001</label>
-                    </div>
-                    <div class="mb-2">
-                        <label><b>ชื่อ-สกุล:</b> ธีรเดช รอดพ้น</label>
-                    </div>
-                    <div class="mb-2">
-                        <label><b>เวลาคืน:</b> 08.00</label>
-                    </div>
-                    <div class="d-flex bd-highlight">
-                        <div class="ms-auto bd-highlight"><a href="" class="btn btn-outline-success btn-sm"><i
-                                    class="fa-solid fa-arrow-rotate-left"></i> คืนอุปกรณ์</a></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php } ?>
     </div>
 </div>
 
