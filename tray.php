@@ -5,7 +5,7 @@
 <!-- Page content-->
 
 <div class="container-fluid m-2">
-    <small><b>Home / เพิ่มเครื่องมือ</small></b>
+    <small><b>/ เพิ่มเครื่องมือประจำถาด</small></b>
     <div class="row" style="margin-right:0.5rem;">
         <div class="col-lg-3 col-12  mt-4">
             <form action="tray_add_db.php" method="post">

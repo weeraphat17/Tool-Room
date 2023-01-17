@@ -4,7 +4,7 @@
 
 <!-- Page content-->
 <div class="container-fluid m-2">
-    <small><b>Home / เพิ่มเครื่องมือ</small></b>
+    <small><b>/ เพิ่มเครื่องมือ</small></b>
 
     <form action="tool_add_db.php" method="post">
         <div class="row" style="margin-right:0.5rem;">
@@ -30,7 +30,7 @@
             </div>
         </div>
     </form>
-    <div class="mt-5 mb-5">
+    <div class="mt-5 mb-5" style="margin-right:1rem;">
         <?php 
             $sql = "SELECT * FROM tools";
             $result = mysqli_query($conn, $sql);
