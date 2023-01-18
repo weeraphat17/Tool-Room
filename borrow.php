@@ -36,8 +36,9 @@
     <div class="mt-5 mb-5" style="margin-right:1rem;">
         <?php 
             $timestamp = date('H.i');
-            $sql = "SELECT borrow_id,concat(stu_fname,' ',stu_lname) AS fullname,student.student_id,dpr3,
-            borrow.tools_code AS code,borrow_time_start,borrow_time_stop,subject_name,teacher_name FROM borrow 
+            $sql = "SELECT borrow_id,concat(stu_fname,' ',stu_lname) AS fullname,student.student_id,
+            borrow.tools_code AS code,borrow_time_start,borrow_time_stop,subject_name,teacher_name,dpr3
+            ,borrow.student_group_id,borrow.subject_id,borrow.borrow_time,LEFT(date_start,10) AS date_old  FROM borrow 
             INNER JOIN student ON borrow.student_id = student.student_id 
             INNER JOIN studing ON borrow.student_group_id = studing.student_group_id 
             AND borrow.subject_id = studing.subject_id AND borrow.borrow_time = studing.dpr3
@@ -63,7 +64,13 @@
                     <td><?php echo $row['fullname'] ?></td>
                     <td><?php echo $row['borrow_time_stop'] ?>
                         <span
-                            style="color:red;"><?php if(doubleval($timestamp) > doubleval($row['borrow_time_stop'])){ echo"(เลยกำหนด)";}?>
+                            style="color:red;"><?php 
+                            $date_old = $row['date_old'];
+                            $date_now = date('Y-m-d');
+                            // $sql4 = "SELECT dpr2 FROM studing WHERE dpr3 = '$b_time' AND student_group_id = '$stdg_id' AND subject_id = '$sub_id'";
+                            // $result4 = mysqli_query($conn, $sql4);
+                            if(doubleval($timestamp) > doubleval($row['borrow_time_stop']) OR $date_now > $date_old){
+                             echo"(เลยกำหนด)";}?>
                         </span>
                     </td>
                     <td style="text-align:center;">
